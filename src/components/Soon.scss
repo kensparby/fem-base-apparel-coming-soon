@@ -12,6 +12,7 @@
   font-size: 0.9rem;
   display: grid;
   color: $clr-p-red-desat;
+  max-width: 440px;
 }
 
 h1,
@@ -52,6 +53,7 @@ header {
   padding: 4rem 2rem;
   gap: 1rem;
   line-height: 1.75;
+  text-align: center;
 
   h1 {
     font-size: 2.5rem;
