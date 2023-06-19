@@ -34,6 +34,7 @@ header {
   display: flex;
   align-items: center;
   padding: 1.8rem;
+  max-height: 10rem;
 
   img {
     height: 1.5rem;
@@ -137,6 +138,7 @@ form {
     grid-template-rows: 1fr 5fr;
     grid-template-columns: 1.5fr 1fr;
     max-width: 1440px;
+    min-height: unset;
   }
 
   header {
