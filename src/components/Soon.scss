@@ -5,15 +5,12 @@
 }
 
 .Soon {
-  background-image: $grd-l-gray;
+  background-image: grd-l-gray(135);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   font-size: 0.9rem;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  width: clamp(300px, 400px, 100dvw);
+  display: grid;
   color: $clr-p-red-desat;
 }
 
@@ -34,6 +31,8 @@ h6 {
 }
 
 header {
+  display: flex;
+  align-items: center;
   padding: 1.8rem;
 
   img {
@@ -44,7 +43,6 @@ header {
 .heroImage {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
 }
 
 .content {
@@ -52,6 +50,7 @@ header {
   flex-direction: column;
   padding: 4rem 2rem;
   gap: 1rem;
+  line-height: 1.75;
 
   h1 {
     font-size: 2.5rem;
@@ -61,6 +60,7 @@ header {
 
 form {
   height: 3rem;
+  margin-top: 1rem;
 
   .inputs {
     height: 3rem;
@@ -76,50 +76,102 @@ form {
 
     input[name="email"] {
       width: 100%;
-      color: inherit;
+      color: $clr-n-red-gray;
       background: transparent;
       border: 1px solid lighten($clr-p-red-desat, 10%);
+      padding-right: 6.5rem;
+    }
+
+    input:focus,
+    input:active {
+      outline: 0;
+    }
+
+    input::placeholder {
+      color: $clr-p-red-desat;
     }
 
     input[name="submitButton"] {
-      background: $grd-l-red;
+      background: grd-l-red(135);
       color: white;
       font-size: 2rem;
       position: absolute;
       right: 0;
-      border: 1px solid transparent;
       display: flex;
+      border: 0;
       align-items: center;
       justify-content: center;
       line-height: 0;
+      transition: filter 50ms ease;
+
+      &:hover,
+      &:focus {
+        filter: brightness(1.25);
+      }
+
+      &:active {
+        background: $clr-p-red-desat;
+      }
     }
 
     p {
       position: absolute;
-      bottom: -1.5rem;
+      bottom: -2rem;
       margin-left: 1rem;
-      // visibility: hidden;
+      visibility: hidden;
+      color: $clr-p-red-soft;
+    }
+
+    input[name="email"].invalid {
+      outline: 2px solid $clr-p-red-soft;
+      ~ p.invalidInputText {
+        visibility: visible;
+      }
     }
   }
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 800px) {
   .Soon {
     background-image: url("../assets/images/bg-pattern-desktop.svg");
-    flex-wrap: wrap;
-    max-height: 900px;
+    grid-template-rows: 1fr 5fr;
+    grid-template-columns: 1.5fr 1fr;
+    max-width: 1440px;
+  }
 
-    header {
-      flex: 0 0 auto;
+  header {
+    padding: 0 min(10rem, 20%);
+  }
+
+  .content {
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem min(10rem, 20%);
+    grid-row: 2 / -1;
+    text-align: left;
+    max-width: 80ch;
+
+    h1 {
+      font-size: 4rem;
     }
 
-    .content {
-      flex: 1 0 80%;
+    .inputs input[name="submitButton"] {
+      width: 5.5rem;
     }
   }
 
+  header,
+  .content {
+    grid-column: 1;
+  }
+
   .heroImage {
-    order: 1;
-    flex: 1 0 100%;
+    grid-column: 2;
+    grid-row: 1 / -1;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
   }
 }

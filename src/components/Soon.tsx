@@ -4,14 +4,41 @@ import HeroImageDesktop from "../assets/images/hero-desktop.jpg";
 import HeroImageMobile from "../assets/images/hero-mobile.jpg";
 
 function Soon() {
+  const handleInput = (e) => {
+    const regex: RegExp = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/;
+    if (
+      e.target.classList.contains("invalid") &&
+      regex.test(e.target.value) === true
+    ) {
+      e.target.classList.remove("invalid");
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const regex: RegExp = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/;
+    const input: HTMLInputElement | null =
+      document.querySelector("input[name=email]");
+    document.querySelector(".invalidInputText");
+    if (
+      (input?.value.length && regex.test(input?.value) === false) ||
+      input?.value.length === 0
+    ) {
+      input?.classList.add("invalid");
+    }
+  };
+
   return (
     <div className="Soon">
       <header>
         <img src={Logo} alt="" />
       </header>
       <picture className="heroImage">
-        <source srcSet={HeroImageDesktop} media="(min-width: 700px)" />
-        <img src={HeroImageMobile} alt="" />
+        <source srcSet={HeroImageDesktop} media="(min-width: 800px)" />
+        <img
+          src={HeroImageMobile}
+          alt="fashionable young woman posing for camera"
+        />
       </picture>
       <section className="content">
         <h1>
@@ -23,9 +50,14 @@ function Soon() {
           <span className="nobreak">up-to-date</span> with announcements and our
           launch deals.
         </p>
-        <form id="subscribeForm">
+        <form id="subscribeForm" onSubmit={handleSubmit}>
           <div className="inputs">
-            <input type="email" name="email" placeholder="Email Address" />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              onInput={handleInput}
+            />
             <input name="submitButton" type="submit" value=">" />
             <p className="invalidInputText">Please provide a valid email</p>
           </div>
