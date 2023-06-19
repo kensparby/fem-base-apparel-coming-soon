@@ -4,7 +4,7 @@ import HeroImageDesktop from "../assets/images/hero-desktop.jpg";
 import HeroImageMobile from "../assets/images/hero-mobile.jpg";
 
 function Soon() {
-  const handleInput = (e) => {
+  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const regex: RegExp = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/;
     if (
       e.target.classList.contains("invalid") &&
@@ -14,7 +14,7 @@ function Soon() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<SubmitEvent>) => {
     e.preventDefault();
     const regex: RegExp = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/;
     const input: HTMLInputElement | null =
