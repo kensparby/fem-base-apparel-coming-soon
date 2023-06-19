@@ -14,7 +14,7 @@ function Soon() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent<SubmitEvent>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const regex: RegExp = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/;
     const input: HTMLInputElement | null =
