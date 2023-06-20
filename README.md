@@ -31,8 +31,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [https://kensparby-base-apparel.netlify.app/](https://kensparby-base-apparel.netlify.app/)
-- Live Site URL: [https://github.com/kensparby/fem-base-apparel-coming-soon](https://github.com/kensparby/fem-base-apparel-coming-soon)
+- Solution URL: [https://github.com/kensparby/fem-base-apparel-coming-soon](https://github.com/kensparby/fem-base-apparel-coming-soon)
+- Live Site URL: [https://kensparby-base-apparel.netlify.app/](https://kensparby-base-apparel.netlify.app/)
 
 ## My process
 
